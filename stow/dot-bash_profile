@@ -39,7 +39,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # If bashrc exists load it
-[[ -f ~/.config/bash/bashrc ]] && . ~/.config/bash/bashrc
+[[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [ "$(tty)" = "/dev/tty1" ]; then
   pgrep -x dwm || exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
