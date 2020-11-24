@@ -1,0 +1,6 @@
+[user]
+	email = wybren@apertures.nl
+	name = Wybren Terpstra
+	signingkey = BBE9890B714435ED
+[commit]
+	gpgsign = true
