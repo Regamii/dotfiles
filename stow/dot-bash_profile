@@ -42,5 +42,5 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 [[ -f ~/.config/bash/bashrc ]] && . ~/.config/bash/bashrc
 
 if [ "$(tty)" = "/dev/tty1" ]; then
-  pgrep -x dwm || exec startx
+  pgrep -x dwm || exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 fi
