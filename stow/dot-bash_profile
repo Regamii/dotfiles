@@ -24,7 +24,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 
 ## Cache Clean-up
