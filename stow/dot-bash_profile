@@ -1,0 +1,46 @@
+#
+# ~/.bash_profile
+#
+
+export PATH="$PATH:$HOME/.bin"
+export EDITOR='vim'
+export TERMINAL='st'
+export BROWSER='firefox'
+export READER='zathura'
+export PROJECTS="$HOME/Projects"
+
+# XDG
+## Default directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+## Vim Clean-up
+[ -d $XDG_DATA_HOME/vim/undo ] || mkdir -p "$XDG_DATA_HOME"/vim/undo
+[ -d $XDG_DATA_HOME/vim/swap ] || mkdir -p "$XDG_DATA_HOME"/vim/swap
+[ -d $XDG_DATA_HOME/vim/backup ] || mkdir -p "$XDG_DATA_HOME"/vim/backup
+
+## Config Clean-up
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+
+## Cache Clean-up
+export LESSHISTFILE="-"
+
+## Data Clean-up
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+export ATOM_HOME="$XDG_DATA_HOME"/atom
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+
+## Runtime Clean-up
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+# If bashrc exists load it
+[[ -f ~/.config/bash/bashrc ]] && . ~/.config/bash/bashrc
+
+if [ "$(tty)" = "/dev/tty1" ]; then
+  pgrep -x dwm || exec startx
+fi
