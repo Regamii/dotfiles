@@ -6,7 +6,7 @@
 shopt -s autocd
 
 # if not running interactively, don't do anything
-[[ $- != *i* ]] $$ return
+[[ $- != *i* ]] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
