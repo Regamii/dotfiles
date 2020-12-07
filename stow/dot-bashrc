@@ -8,6 +8,7 @@ shopt -s autocd
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# override bash_profile GPG_TTY
 GPG_TTY=$(tty)
 
 # don't put duplicate lines or lines starting with space in the history.
