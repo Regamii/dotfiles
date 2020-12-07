@@ -8,6 +8,7 @@ export TERMINAL='st'
 export BROWSER='firefox'
 export READER='zathura'
 export PROJECTS="$HOME/Projects"
+export GPG_TTY=$(tty)
 
 # XDG
 ## Default directories
