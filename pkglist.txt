@@ -6,6 +6,7 @@ base
 binutils
 bison
 cheese
+composer
 dmenu
 eog
 epiphany
@@ -78,6 +79,7 @@ pass-otp
 patch
 pkgconf
 rygel
+shellcheck
 simple-scan
 sshfs
 stow
