@@ -1,11 +1,23 @@
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/terminal/legacy/'
+saved-view='/org/gnome/terminal/legacy/'
+window-height=500
+window-is-maximized=false
+window-width=540
+
 [org/freedesktop/tracker/miner/files]
 index-recursive-directories=['&DOCUMENTS', '&MUSIC', '&PICTURES', '&VIDEOS', '$HOME']
+index-single-directories=['&DOWNLOAD', '$HOME']
 
 [org/gnome/GWeather]
 temperature-unit='centigrade'
 
 [org/gnome/Weather]
 automatic-location=false
+
+[org/gnome/baobab/ui]
+window-size=(960, 600)
+window-state=43908
 
 [org/gnome/clocks]
 world-clocks=[{'location': <(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91367986341903151, 0.085812027374152042)])>)>}]
@@ -16,7 +28,7 @@ size=(870, 690)
 state=87168
 
 [org/gnome/control-center]
-last-panel='universal-access'
+last-panel='search'
 
 [org/gnome/desktop/calendar]
 show-weekdate=true
@@ -68,10 +80,25 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 [org/gnome/desktop/session]
 idle-delay=uint32 300
 
+[org/gnome/epiphany]
+restore-session-policy='never'
+search-engines=[('DuckDuckGo', 'https://duckduckgo.com/?q=%s&t=epiphany', '!ddg')]
+start-in-incognito-mode=true
+
 [org/gnome/epiphany/state]
 is-maximized=true
 window-position=(0, 0)
 window-size=(0, 0)
+
+[org/gnome/epiphany/sync]
+sync-device-name='wybren’s GNOME Web on glados'
+
+[org/gnome/epiphany/web]
+ask-on-download=true
+default-zoom-level=1.0
+enable-safe-browsing=false
+enable-website-data-storage=false
+remember-passwords=false
 
 [org/gnome/evolution-data-server]
 migrated=true
