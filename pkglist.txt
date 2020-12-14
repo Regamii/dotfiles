@@ -14,6 +14,7 @@ evince
 fakeroot
 file-roller
 flex
+fzf
 gcc
 gdm
 gedit
