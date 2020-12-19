@@ -1,0 +1,14 @@
+"*":
+  core:
+    audioBeep: false
+    automaticallyUpdate: false
+    excludeVcsIgnoredPaths: true
+    restorePreviousWindowsOnStart: "no"
+    telemetryConsent: "no"
+  editor:
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+  welcome:
+    showOnStartup: false

@@ -1,0 +1,3 @@
+atom-beautify
+emmet
+file-icons
