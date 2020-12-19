@@ -19,6 +19,7 @@ flex
 fzf
 gcc
 gdm
+geary
 gedit
 gimp
 git
