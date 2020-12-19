@@ -5,12 +5,19 @@ window-height=500
 window-is-maximized=false
 window-width=540
 
+[desktop/gnome/crypto/cache]
+gpg-cache-ttl=86400
+
 [org/freedesktop/tracker/miner/files]
 index-recursive-directories=['&DOCUMENTS', '&MUSIC', '&PICTURES', '&VIDEOS', '$HOME']
 index-single-directories=['&DOWNLOAD', '$HOME']
 
 [org/gnome/GWeather]
 temperature-unit='centigrade'
+
+[org/gnome/Totem]
+active-plugins=['autoload-subtitles', 'vimeo', 'variable-rate', 'screenshot', 'rotation', 'open-directory', 'skipto', 'movie-properties', 'screensaver', 'media-player-keys', 'save-file', 'apple-trailers', 'recent']
+subtitle-encoding='UTF-8'
 
 [org/gnome/Weather]
 automatic-location=false
@@ -19,8 +26,44 @@ automatic-location=false
 window-size=(960, 600)
 window-state=43908
 
+[org/gnome/books]
+night-mode=true
+window-maximized=true
+
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+refresh-interval=604800
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-position=(26, 23)
+word-size=64
+
+[org/gnome/calendar]
+active-view='month'
+follow-night-light=true
+weather-settings=(false, true, '', @mv nothing)
+window-maximized=true
+window-position=(0, 0)
+window-size=(1366, 694)
+
+[org/gnome/cheese]
+burst-delay=1000
+camera='Laptop_Integrated_Webcam_3M: In'
+photo-x-resolution=640
+photo-y-resolution=480
+video-x-resolution=640
+video-y-resolution=480
+
 [org/gnome/clocks]
-world-clocks=[{'location': <(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91367986341903151, 0.085812027374152042)])>)>}]
+geolocation=false
 
 [org/gnome/clocks/state/window]
 panel-id='world'
@@ -29,6 +72,10 @@ state=87168
 
 [org/gnome/control-center]
 last-panel='search'
+
+[org/gnome/deja-dup]
+backend='google'
+prompt-check='2020-12-15T17:48:54.641151Z'
 
 [org/gnome/desktop/calendar]
 show-weekdate=true
@@ -53,8 +100,14 @@ autorun-x-content-open-folder=@as []
 autorun-x-content-start-app=['x-content/ostree-repository']
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'org-gnome-epiphany']
+application-children=['org-gnome-nautilus', 'org-gnome-epiphany', 'gnome-power-panel', 'org-gnome-baobab']
 show-in-lock-screen=false
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-baobab]
+application-id='org.gnome.baobab.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-epiphany]
 application-id='org.gnome.Epiphany.desktop'
@@ -79,6 +132,12 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 
 [org/gnome/desktop/session]
 idle-delay=uint32 300
+
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+transparency='checked'
+use-background-color=true
 
 [org/gnome/epiphany]
 restore-session-policy='never'
@@ -105,21 +164,30 @@ migrated=true
 network-monitor-gio-name=''
 
 [org/gnome/nautilus/compression]
-default-compression-format='zip'
+default-compression-format='tar.xz'
+
+[org/gnome/nautilus/list-view]
+default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
+default-visible-columns=['name', 'size', 'date_modified', 'starred']
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
+search-view='list-view'
 
 [org/gnome/nautilus/window-state]
 initial-size=(890, 550)
 maximized=false
+
+[org/gnome/photos]
+window-maximized=true
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+max-screencast-length=uint32 0
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Primary><Alt>t'
@@ -130,17 +198,23 @@ name='Terminal'
 antialiasing='grayscale'
 hinting='slight'
 
+[org/gnome/shell]
+remember-mount-password=false
+
 [org/gnome/shell/weather]
 automatic-location=false
 locations=@av []
 
 [org/gnome/shell/world-clocks]
-locations=[<(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91367986341903151, 0.085812027374152042)])>)>]
+locations=@av []
+
+[org/gnome/simple-scan]
+document-type='photo'
 
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=157
