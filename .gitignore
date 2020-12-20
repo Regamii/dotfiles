@@ -1,0 +1,6 @@
+# ignore everything in `stow/.local/share/atom/`
+stow/.local/share/atom/*
+
+# but not this file
+!config.cson
+!*/
