@@ -38,6 +38,7 @@ gnome-documents
 gnome-font-viewer
 gnome-getting-started-docs
 gnome-keyring
+gnome-latex
 gnome-logs
 gnome-maps
 gnome-menus
@@ -54,6 +55,7 @@ gnome-sound-recorder
 gnome-system-monitor
 gnome-terminal
 gnome-themes-extra
+gnome-todo
 gnome-tweaks
 gnome-user-docs
 gnome-user-share
@@ -104,6 +106,7 @@ tracker3
 tracker3-miners
 vim
 vino
+wget
 which
 xdg-user-dirs-gtk
 yelp
