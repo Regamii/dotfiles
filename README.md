@@ -65,7 +65,7 @@ pacman -Qqe > pacman.txt
 Commands to install packages:
 ```
 apm install < apm.txt
-composer require global < composer.txt
+composer global require $(cat composer.txt) 
 pacman --needed -S - < pacman.txt
 ```
 
