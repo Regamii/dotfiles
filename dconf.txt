@@ -1,10 +1,3 @@
-[ca/desrt/dconf-editor]
-saved-pathbar-path='/org/gnome/terminal/legacy/'
-saved-view='/org/gnome/terminal/legacy/'
-window-height=500
-window-is-maximized=false
-window-width=540
-
 [desktop/gnome/crypto/cache]
 gpg-cache-ttl=86400
 
@@ -22,13 +15,8 @@ subtitle-encoding='UTF-8'
 [org/gnome/Weather]
 automatic-location=false
 
-[org/gnome/baobab/ui]
-window-size=(960, 600)
-window-state=43908
-
 [org/gnome/books]
 night-mode=true
-window-maximized=true
 
 [org/gnome/calculator]
 accuracy=9
@@ -43,16 +31,12 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(26, 23)
 word-size=64
 
 [org/gnome/calendar]
 active-view='month'
 follow-night-light=true
 weather-settings=(false, true, '', @mv nothing)
-window-maximized=true
-window-position=(0, 0)
-window-size=(1366, 694)
 
 [org/gnome/cheese]
 burst-delay=1000
@@ -67,8 +51,6 @@ geolocation=false
 
 [org/gnome/clocks/state/window]
 panel-id='world'
-size=(870, 690)
-state=87168
 
 [org/gnome/control-center]
 last-panel='search'
@@ -103,6 +85,9 @@ autorun-x-content-start-app=['x-content/ostree-repository']
 application-children=['org-gnome-nautilus', 'org-gnome-epiphany', 'gnome-power-panel', 'org-gnome-baobab']
 show-in-lock-screen=false
 
+[org/gnome/desktop/notifications/application/gimp]
+application-id='gimp.desktop'
+
 [org/gnome/desktop/notifications/application/gnome-power-panel]
 application-id='gnome-power-panel.desktop'
 
@@ -133,7 +118,6 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 [org/gnome/desktop/session]
 idle-delay=uint32 300
 
-
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
 transparency='checked'
@@ -142,12 +126,10 @@ use-background-color=true
 [org/gnome/epiphany]
 restore-session-policy='never'
 search-engines=[('DuckDuckGo', 'https://duckduckgo.com/?q=%s&t=epiphany', '!ddg')]
-start-in-incognito-mode=true
+start-in-incognito-mode=false
 
 [org/gnome/epiphany/state]
 is-maximized=true
-window-position=(0, 0)
-window-size=(0, 0)
 
 [org/gnome/epiphany/sync]
 sync-device-name='wybren’s GNOME Web on glados'
@@ -174,13 +156,6 @@ default-visible-columns=['name', 'size', 'date_modified', 'starred']
 default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
 search-view='list-view'
-
-[org/gnome/nautilus/window-state]
-initial-size=(890, 550)
-maximized=false
-
-[org/gnome/photos]
-window-maximized=true
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
@@ -211,6 +186,11 @@ locations=@av []
 [org/gnome/simple-scan]
 document-type='photo'
 
+[org/gnome/terminal/legacy]
+mnemonics-enabled=false
+new-tab-position='next'
+new-terminal-mode='tab'
+
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
@@ -222,5 +202,3 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(26, 23)
-window-size=(1203, 694)
