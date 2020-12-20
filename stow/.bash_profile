@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-export PATH="$PATH:$HOME/.bin"
+export PATH="$HOME/.bin:$HOME/.composer/vendor/bin:$PATH"
 export EDITOR='vim'
 export PROJECTS="$HOME"/Projects
 export GPG_TTY=$(tty)
