@@ -127,12 +127,6 @@ restore-session-policy='never'
 search-engines=[('DuckDuckGo', 'https://duckduckgo.com/?q=%s&t=epiphany', '!ddg')]
 start-in-incognito-mode=false
 
-[org/gnome/epiphany/state]
-is-maximized=true
-
-[org/gnome/epiphany/sync]
-sync-device-name='wybren’s GNOME Web on glados'
-
 [org/gnome/epiphany/web]
 ask-on-download=true
 default-zoom-level=1.0
