@@ -10,6 +10,8 @@ composer
 dconf-editor
 deja-dup
 dmenu
+docker
+docker-compose
 eog
 epiphany
 evince
@@ -79,6 +81,7 @@ linux-lts
 m4
 make
 man-db
+mariadb
 mutter
 nautilus
 ncdu
