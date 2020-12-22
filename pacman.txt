@@ -102,6 +102,7 @@ stow
 sudo
 sushi
 texinfo
+texlive-core
 totem
 tracker
 tracker-miners
