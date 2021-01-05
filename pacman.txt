@@ -86,6 +86,7 @@ mutter
 nautilus
 ncdu
 networkmanager
+networkmanager-openvpn
 openttd
 orca
 pass
@@ -101,6 +102,7 @@ sshfs
 stow
 sudo
 sushi
+tcpdump
 texinfo
 texlive-bibtexextra
 texlive-core
