@@ -4,7 +4,7 @@ Dotfiles are plain text configuration files on Unix like operating systems. Some
 examples are `~/.bashrc` and `~/.vimrc`. They are named *dotfiles* because these
 files typically begin with a period `.` making them hidden files.
 
-Because these are plain text files git can be used to track changes.
+Because these are plain text files Git can be used to track changes.
 
 ## XDG Base Directory Specification
 Before [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
@@ -27,7 +27,7 @@ Fortunately there is a tool that makes this job easy: [GNU Stow](https://www.gnu
 and/or data located in separate directories on the filesystem, and makes them
 appear to be installed in the same place.
 
-GNU Stow creates symlinks form the `-t` directory to the files/directories in
+GNU Stow creates symlinks from the `-t` directory to the files/directories in
 the `stow` directory. `~/.bashrc -> ~/devel/dotfiles/stow/.bashrc` In this
 example `~/.bashrc` links to `~/devel/dotfiles/stow/.bashrc`.
 

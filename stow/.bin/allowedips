@@ -1,0 +1,162 @@
+#!/bin/bash
+ 
+declare -A RS # range start
+declare -A RE # range end
+ 
+function ip2num {
+    [[ "$1" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] && echo $(( (${BASH_REMATCH[1]}<<24)+(${BASH_REMATCH[2]}<<16)+(${BASH_REMATCH[3]}<<8)+${BASH_REMATCH[4]} ))
+}
+ 
+function num2ip {
+    printf "%d.%d.%d.%d" $(( ($1>>24)&0xff )) $(( ($1>>16)&0xff )) $(( ($1>>8)&0xff )) $(( $1&0xff ))
+}
+ 
+function sort_ranges {
+    local SZ=${#RS[@]};
+    local TMPN
+    local I=0
+    local J
+    local K
+ 
+    for ((J=0;J<SZ;J++)); do
+        if [[ ${RS[$J]} -ne -1 ]]; then
+            RS[$I]=${RS[$J]}
+            RE[$I]=${RE[$J]}
+            ((I++))
+        fi
+    done
+    for ((;I<SZ;I++)); do
+        unset RS[$I];
+        unset RE[$I];
+    done
+ 
+    SZ=${#RS[@]};
+    for ((I=0;I<SZ-1;I++)); do
+        for ((J=0;J<SZ-I-1;J++)); do
+            K=$(( J+1 ))
+            if [[ ${RS[$J]} -gt ${RS[$K]} ]]; then
+                TMPN=${RS[$J]}
+                RS[$J]=${RS[$K]}
+                RS[$K]=$TMPN
+                TMPN=${RE[$J]}
+                RE[$J]=${RE[$K]}
+                RE[$K]=$TMPN
+            fi
+        done
+    done
+}
+ 
+function merge_ranges {
+    local I
+    local J
+    local SZ=${#RS[@]};
+ 
+    for ((I=0;I<SZ-1;I++)); do
+        J=$(( I+1 ))
+        if [[ ${RE[$I]} -eq $((${RS[$J]}-1)) ]]; then # merge adjacent
+            RS[$J]=${RS[$I]}
+            RS[$I]=-1
+            RE[$I]=-1
+        fi
+    done
+    sort_ranges
+}
+ 
+function remove_range {
+    local IP1=$1
+    local IP2=$2
+    local SZ=${#RS[@]};
+    local I
+ 
+    for ((I=0;I<SZ;I++)); do
+        if [[ ${RS[$I]} -gt $IP2 || ${RE[$I]} -lt $IP1 ]]; then continue; fi # no overlap
+ 
+        if [[ $IP1 -le ${RS[$I]} && $IP2 -ge ${RE[$I]} ]]; then # complete overlap - remove range
+            RS[$I]=-1;
+            RE[$I]=-1;
+        elif [[ $IP1 -le ${RS[$I]} ]]; then # trim start
+            RS[$I]=$(( $IP2 + 1 ))
+        elif [[ $IP2 -ge ${RE[$I]} ]]; then # trim end
+            RE[$I]=$(( $IP1 - 1 ))
+        else # split into two
+            RS[$SZ]=$(( $IP2 + 1 ))
+            RE[$SZ]=${RE[$I]}
+            RE[$I]=$(( $IP1 - 1 ))
+        fi
+    done
+    sort_ranges
+}
+ 
+ 
+function add_range {
+    local IP1=$1
+    local IP2=$2
+ 
+    remove_range $IP1 $IP2
+ 
+    local SZ=${#RS[@]};
+    RS[$SZ]=$IP1
+    RE[$SZ]=$IP2
+ 
+    sort_ranges
+    merge_ranges
+}
+ 
+ 
+for R in $*; do
+    if [[ "$R" =~ ^([+-])([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+):([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then # IP range
+        OP=${BASH_REMATCH[1]}
+        IP1=$(ip2num ${BASH_REMATCH[2]})
+        IP2=$(ip2num ${BASH_REMATCH[3]})
+ 
+        if [ $OP = '+' ]; then
+            add_range $IP1 $IP2
+        else
+            remove_range $IP1 $IP2
+        fi
+ 
+    elif [[ "$R" =~ ^([+-])([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/([0-9]+)$ ]]; then # CIDR
+        OP=${BASH_REMATCH[1]}
+        IP=${BASH_REMATCH[2]}
+        WID=${BASH_REMATCH[3]}
+ 
+        IP1=$(( $(ip2num $IP) & (0xffffffff<<(32-$WID)) ))
+        IP2=$(( $IP1 + (0xffffffff>>$WID) ))
+ 
+        if [ $OP = '+' ]; then
+            add_range $IP1 $IP2
+        else
+            remove_range $IP1 $IP2
+        fi
+ 
+    elif [[ "$R" =~ ^([+-])([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then # IP
+        OP=${BASH_REMATCH[1]}
+        IP=${BASH_REMATCH[2]}
+        IP1=$(ip2num $IP)
+        IP2=$(ip2num $IP)
+ 
+        if [ $OP = '+' ]; then
+            add_range $IP1 $IP2
+        else
+            remove_range $IP1 $IP2
+        fi
+ 
+    else
+        echo "ERROR: bad argument $R expect [+-]1.2.3.4/32 or [+-]1.1.1.1:2.2.2.2 or [+-]1.2.3.4"
+        exit 1
+    fi
+done
+ 
+function output_cidrs {
+    SZ=${#RS[@]};
+    for ((I=0;I<SZ;I++)); do
+        if [[ ${RS[$I]} -lt 0 ]]; then continue; fi
+ 
+        IP1=$(num2ip ${RS[$I]})
+        IP2=$(num2ip ${RE[$I]})
+ 
+        netmask -c $IP1:$IP2
+    done
+}
+ 
+echo $(output_cidrs) | sed "s/ /, /g"
