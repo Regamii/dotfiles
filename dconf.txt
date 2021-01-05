@@ -54,10 +54,6 @@ panel-id='world'
 [org/gnome/control-center]
 last-panel='search'
 
-[org/gnome/deja-dup]
-backend='google'
-prompt-check='2020-12-15T17:48:54.641151Z'
-
 [org/gnome/desktop/calendar]
 show-weekdate=true
 
