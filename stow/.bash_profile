@@ -24,7 +24,7 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
-export ATOM_HOME="$XDG_DATA_HOME"/atom
+export HTOPRC="$XDG_CONFIG_HOME"/htop/htoprc
 
 ## Cache Clean-up
 export LESSHISTFILE="-"
@@ -33,6 +33,7 @@ export LESSHISTFILE="-"
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 export ATOM_HOME="$XDG_DATA_HOME"/atom
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export ATOM_HOME="$XDG_DATA_HOME"/atom
 
 ## Runtime Clean-up
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
