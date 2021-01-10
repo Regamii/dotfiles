@@ -18,7 +18,7 @@ password=$(printf '%s\n' "${password_files[@]}" | fzf "$@")
 [[ -n $password ]] || exit
 
 if [[ $otp -eq 0 ]]; then
-	pass show -c "$password" 2>/dev/null
+	pass -c "$password" 2>/dev/null
 else
 	pass otp show -c "$password" 2>/dev/null
 fi
