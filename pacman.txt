@@ -9,6 +9,7 @@ cheese
 composer
 dconf-editor
 deja-dup
+discord
 dmenu
 docker
 docker-compose
@@ -84,6 +85,7 @@ man-db
 mariadb
 mutter
 nautilus
+nautilus-sendto
 ncdu
 networkmanager
 networkmanager-openvpn
