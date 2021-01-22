@@ -84,6 +84,7 @@ man-db
 mariadb
 mutter
 nautilus
+nautilus-sendto
 ncdu
 networkmanager
 networkmanager-openvpn
