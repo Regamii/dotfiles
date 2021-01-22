@@ -48,6 +48,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# keep track of directory in new tab; gnome-terminal
+. /etc/profile.d/vte.sh
+
 # more aliases
 alias sdn='sudo shutdown now'
 alias SS='sudo systemctl'
