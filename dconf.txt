@@ -113,6 +113,12 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 [org/gnome/desktop/session]
 idle-delay=uint32 300
 
+[org/gnome/desktop/wm/keybindings]
+switch-applications=['<Super>Tab']
+switch-applications-backward=['<Shift><Super>Tab']
+switch-windows=['<Alt>Tab']
+switch-windows-backward=['<Shift><Alt>Tab']
+
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
 transparency='checked'
