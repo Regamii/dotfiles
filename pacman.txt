@@ -9,6 +9,7 @@ cheese
 composer
 dconf-editor
 deja-dup
+dialog
 discord
 dmenu
 docker
@@ -118,6 +119,8 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+tor
+torbrowser-launcher
 totem
 tracker
 tracker-miners
