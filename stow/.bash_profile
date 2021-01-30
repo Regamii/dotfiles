@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-export PATH="$HOME/.bin:$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/.config/composer/vendor/bin:$PATH"
 export EDITOR='vim'
 export PROJECTS="$HOME"/Projects
 export GPG_TTY=$(tty)
@@ -31,6 +31,7 @@ export LESSHISTFILE="-"
 
 ## Data Clean-up
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export ATOM_HOME="$XDG_DATA_HOME"/atom
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export ATOM_HOME="$XDG_DATA_HOME"/atom
