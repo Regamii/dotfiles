@@ -76,6 +76,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 htop
+jq
 libreoffice-fresh
 linux-firmware
 linux-headers
@@ -90,6 +91,7 @@ nautilus-sendto
 ncdu
 networkmanager
 networkmanager-openvpn
+nmap
 openttd
 orca
 pass
@@ -97,6 +99,8 @@ pass-otp
 patch
 pitivi
 pkgconf
+pwgen
+python-pip
 rygel
 seahorse-nautilus
 shellcheck
@@ -130,5 +134,6 @@ vim
 vino
 wget
 which
+wireguard-tools
 xdg-user-dirs-gtk
 yelp
