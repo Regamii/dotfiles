@@ -1,8 +1,12 @@
+android-tools
+android-udev
+arp-scan
 atom
 autoconf
 automake
 baobab
 base
+bind
 binutils
 bison
 cheese
@@ -46,9 +50,10 @@ gnome-latex
 gnome-logs
 gnome-maps
 gnome-menus
-gnome-music
 gnome-nettool
+gnome-passwordsafe
 gnome-photos
+gnome-power-manager
 gnome-remote-desktop
 gnome-screenshot
 gnome-session
@@ -59,7 +64,6 @@ gnome-sound-recorder
 gnome-system-monitor
 gnome-terminal
 gnome-themes-extra
-gnome-todo
 gnome-tweaks
 gnome-user-docs
 gnome-user-share
@@ -67,6 +71,7 @@ gnome-video-effects
 gnome-weather
 grilo-plugins
 grub
+gst-libav
 gvfs
 gvfs-afc
 gvfs-goa
@@ -85,6 +90,7 @@ m4
 make
 man-db
 mariadb
+minecraft-launcher
 mutter
 nautilus
 nautilus-sendto
@@ -92,8 +98,10 @@ ncdu
 networkmanager
 networkmanager-openvpn
 nmap
+openbsd-netcat
 openttd
 orca
+pandoc
 pass
 pass-otp
 patch
@@ -101,6 +109,7 @@ pitivi
 pkgconf
 pwgen
 python-pip
+rhythmbox
 rygel
 seahorse-nautilus
 shellcheck
@@ -135,5 +144,7 @@ vino
 wget
 which
 wireguard-tools
+wl-clipboard
 xdg-user-dirs-gtk
+xorg-xinit
 yelp
