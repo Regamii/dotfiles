@@ -12,6 +12,8 @@ export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_DATA_HOME="$HOME"/.local/state
+export XDG_RUNTIME_DIR=/run/user/"$UID"
 
 ## Vim Clean-up
 [ -d $XDG_DATA_HOME/vim/undo ] || mkdir -p "$XDG_DATA_HOME"/vim/undo
@@ -21,6 +23,7 @@ export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 ## Config Clean-up
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XSERVERRC="XDG_CONFIG_HOME"/X11/xserverrc
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
@@ -41,3 +44,8 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # If bashrc exists load it
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# Run startx if $DISPLAY is not set and tty is /dev/tty1
+if [[ -z $DISPLAY ]] $$ [[ $(tty) = /dev/tty1 ]]; then
+	startx "$XINITRC"
+fi
