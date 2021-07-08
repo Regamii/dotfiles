@@ -12,27 +12,24 @@ export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
-export XDG_DATA_HOME="$HOME"/.local/state
+export XDG_STATE_HOME="$HOME"/.local/state
 export XDG_RUNTIME_DIR=/run/user/"$UID"
-
-## Vim Clean-up
-[ -d $XDG_DATA_HOME/vim/undo ] || mkdir -p "$XDG_DATA_HOME"/vim/undo
-[ -d $XDG_DATA_HOME/vim/swap ] || mkdir -p "$XDG_DATA_HOME"/vim/swap
-[ -d $XDG_DATA_HOME/vim/backup ] || mkdir -p "$XDG_DATA_HOME"/vim/backup
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 ## Config Clean-up
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XSERVERRC="XDG_CONFIG_HOME"/X11/xserverrc
+export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export HTOPRC="$XDG_CONFIG_HOME"/htop/htoprc
 
 ## Cache Clean-up
-export LESSHISTFILE="-"
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 ## Data Clean-up
+export HISTFILE="$XDG_DATA_HOME"/bash/history
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export ATOM_HOME="$XDG_DATA_HOME"/atom
@@ -46,6 +43,6 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Run startx if $DISPLAY is not set and tty is /dev/tty1
-if [[ -z $DISPLAY ]] $$ [[ $(tty) = /dev/tty1 ]]; then
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 	startx "$XINITRC"
 fi
